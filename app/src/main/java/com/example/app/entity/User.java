@@ -1,7 +1,6 @@
 package com.example.app.entity;
 
 import java.time.LocalTime;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 import jakarta.persistence.*;
