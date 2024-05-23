@@ -11,7 +11,7 @@ import lombok.Data;
 
 @Builder
 @Data
-public class UserDto {
+public class UserPostDto {
     @Email
     @NotNull
     private String email;
