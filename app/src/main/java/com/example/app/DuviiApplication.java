@@ -4,10 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DuviiAppApplication {
-
+public class DuviiApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(DuviiAppApplication.class, args);
+		SpringApplication.run(DuviiApplication.class, args);
 	}
-
 }
