@@ -20,8 +20,11 @@ import java.awt.*;
         value = "/user", produces = MediaType.APPLICATION_JSON_VALUE
 )
 public class UserRestController {
-    @Autowired
     UserService userService;
+    @Autowired
+    public UserRestController(UserService userService){
+        this.userService = userService;
+    }
 
 
     @PostMapping("/post")

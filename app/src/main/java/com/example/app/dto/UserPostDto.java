@@ -25,8 +25,6 @@ public class UserPostDto {
     @NotNull
     private String nome;
 
-    @NotNull
-    private LocalTime creationTime;
 
     public User convertDtoToUser(){
             User newUser = new User();

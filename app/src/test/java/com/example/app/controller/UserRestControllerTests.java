@@ -51,8 +51,7 @@ public class UserRestControllerTests {
         UserPostDto userPostDTO = UserPostDto.builder()
                 .email(user.getEmail())
                 .userName(user.getUserName())
-                .password(user.getPassword())
-                .creationTime(user.getCreationTime()).
+                .password(user.getPassword()).
                 build();
     }
 
