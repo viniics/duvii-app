@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.app.dto.UserPostDto;
 import com.example.app.entity.User;
 import com.example.app.exceptions.RegisteredEmailException;
+import com.example.app.exceptions.RegisteredUserNameException;
 import com.example.app.repositories.user.UserRepository;
 
 @Service
@@ -21,7 +22,7 @@ public class UserService {
 
     public User registerUser(UserPostDto userDto){
         User newUser = userDto.convertDtoToUser();
-        if(alreadyRegistered(userDto.getEmail())) throw new RegisteredEmailException();
+        checkAlreadyRegistered(userDto.getEmail(), userDto.getUserName());
         userRepository.save(newUser);
         return newUser;
     }
@@ -35,7 +36,12 @@ public class UserService {
         return user;
     }
 
-    private boolean alreadyRegistered(String email) {
-        return userRepository.existsByEmail(email);
+    private void checkAlreadyRegistered(String email, String userName) {
+        if(userRepository.existsByUserName(userName)){
+            throw new RegisteredUserNameException();
+        }
+         if(userRepository.existsByEmail(email)){
+            throw new RegisteredEmailException();
+         }
     }
 }
