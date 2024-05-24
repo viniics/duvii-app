@@ -1,5 +1,8 @@
 package com.example.app.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.management.RuntimeErrorException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,5 +46,13 @@ public class UserService {
          if(userRepository.existsByEmail(email)){
             throw new RegisteredEmailException();
          }
+    }
+    public String getAllUsers(){
+        List<User> allUsers = userRepository.findAll();
+        String out = "";
+        for(User user: allUsers){
+            out+= user.getEmail()+ " - " +user.getNome() +"\n";
+        }
+        return out;
     }
 }
