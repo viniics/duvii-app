@@ -26,7 +26,7 @@ public class UserService {
         return newUser;
     }
 
-    public User retreiveUser(String query){
+    public User retrieveUser(String query){
         User user = userRepository.findByEmail(query);
         if (user == null){
             user = userRepository.findByUserName(query);
